@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { Send, Menu, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
   { label: "Trade History", href: "#trade-history" },
   { label: "Testimonials", href: "#testimonials" },
   { label: "Groups", href: "#groups" },
+  { label: "FAQ", href: "#faq" },
 ];
 
 const Navbar = () => {
@@ -50,29 +52,39 @@ const Navbar = () => {
       </div>
 
       {/* Mobile menu */}
-      {open && (
-        <div className="sm:hidden bg-background border-b border-border px-4 pb-4 space-y-3">
-          {navLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              onClick={() => setOpen(false)}
-              className="block text-sm text-muted-foreground hover:text-foreground py-2"
-            >
-              {link.label}
-            </a>
-          ))}
-          <a
-            href="https://t.me/yourchannellink"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-5 py-2 rounded-lg bg-primary text-primary-foreground font-semibold text-sm w-full justify-center"
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="sm:hidden bg-background border-b border-border overflow-hidden"
           >
-            <Send className="w-4 h-4" />
-            Join Now
-          </a>
-        </div>
-      )}
+            <div className="px-4 pb-4 space-y-3">
+              {navLinks.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  onClick={() => setOpen(false)}
+                  className="block text-sm text-muted-foreground hover:text-foreground py-2"
+                >
+                  {link.label}
+                </a>
+              ))}
+              <a
+                href="https://t.me/yourchannellink"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-5 py-2 rounded-lg bg-primary text-primary-foreground font-semibold text-sm w-full justify-center"
+              >
+                <Send className="w-4 h-4" />
+                Join Now
+              </a>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 };

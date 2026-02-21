@@ -4,6 +4,7 @@ import TradeHistory from "@/components/TradeHistory";
 import VideoSection from "@/components/VideoSection";
 import Testimonials from "@/components/Testimonials";
 import GroupLinks from "@/components/GroupLinks";
+import FAQSection from "@/components/FAQSection";
 import FooterCTA from "@/components/FooterCTA";
 
 const Index = () => {
@@ -18,6 +19,9 @@ const Index = () => {
       </div>
       <div id="groups">
         <GroupLinks />
+      </div>
+      <div id="faq">
+        <FAQSection />
       </div>
       <FooterCTA />
     </div>
