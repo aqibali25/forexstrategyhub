@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import TradeHistory from "@/components/TradeHistory";
+import ProfitCalculator from "@/components/ProfitCalculator";
 import VideoSection from "@/components/VideoSection";
 import Testimonials from "@/components/Testimonials";
 import GroupLinks from "@/components/GroupLinks";
@@ -13,6 +14,7 @@ const Index = () => {
       <Navbar />
       <HeroSection />
       <TradeHistory />
+      <ProfitCalculator />
       <VideoSection />
       <div id="testimonials">
         <Testimonials />
