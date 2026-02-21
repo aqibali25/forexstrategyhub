@@ -1,12 +1,43 @@
-import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { motion, useInView } from "framer-motion";
 import { Send, TrendingUp, Users, BarChart3 } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
 
-const stats = [
-  { icon: TrendingUp, value: "92%", label: "Win Rate" },
-  { icon: BarChart3, value: "2,400+", label: "Pips Earned" },
-  { icon: Users, value: "5,000+", label: "Members" },
+const statsData = [
+  { icon: TrendingUp, target: 92, suffix: "%", label: "Win Rate" },
+  { icon: BarChart3, target: 2400, suffix: "+", label: "Pips Earned", format: true },
+  { icon: Users, target: 5000, suffix: "+", label: "Members", format: true },
 ];
+
+const AnimatedCounter = ({ target, suffix, format, delay }) => {
+  const [count, setCount] = useState(0);
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+
+  useEffect(() => {
+    if (!isInView) return;
+    const timeout = setTimeout(() => {
+      const duration = 2000;
+      const steps = 60;
+      const increment = target / steps;
+      let current = 0;
+      const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+          setCount(target);
+          clearInterval(timer);
+        } else {
+          setCount(Math.floor(current));
+        }
+      }, duration / steps);
+      return () => clearInterval(timer);
+    }, delay);
+    return () => clearTimeout(timeout);
+  }, [isInView, target, delay]);
+
+  const formatted = format ? count.toLocaleString() : count;
+  return <span ref={ref}>{formatted}{suffix}</span>;
+};
 
 const HeroSection = () => {
   return (
@@ -59,9 +90,9 @@ const HeroSection = () => {
             </a>
           </div>
 
-          {/* Stats */}
+          {/* Stats with animated counters */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-xl mx-auto">
-            {stats.map((stat, index) => (
+            {statsData.map((stat, index) => (
               <motion.div
                 key={stat.label}
                 initial={{ opacity: 0, y: 20 }}
@@ -71,7 +102,12 @@ const HeroSection = () => {
               >
                 <stat.icon className="w-6 h-6 text-primary mb-1" />
                 <span className="text-3xl font-bold font-display text-foreground glow-green-text">
-                  {stat.value}
+                  <AnimatedCounter
+                    target={stat.target}
+                    suffix={stat.suffix}
+                    format={stat.format}
+                    delay={400 + index * 150}
+                  />
                 </span>
                 <span className="text-sm text-muted-foreground">{stat.label}</span>
               </motion.div>
