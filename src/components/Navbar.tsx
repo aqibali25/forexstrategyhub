@@ -15,8 +15,11 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border/50">
       <div className="container mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
-        <a href="#" className="font-display font-bold text-lg text-foreground tracking-wider">
-          FX<span className="text-primary">ELITE</span>
+        <a
+          href="#"
+          className="font-display font-bold text-lg text-foreground tracking-wider"
+        >
+          FOREX <span className="text-primary">STRATEGY HUB</span>
         </a>
 
         {/* Desktop */}
@@ -31,7 +34,7 @@ const Navbar = () => {
             </a>
           ))}
           <a
-            href="https://t.me/yourchannellink"
+            href="https://t.me/+VnNrj2oJ1PVlZGJk"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-5 py-2 rounded-lg bg-primary text-primary-foreground font-semibold text-sm hover:brightness-110 transition-all"

@@ -13,7 +13,7 @@ const FooterCTA = () => {
             profitable traders today.
           </p>
           <a
-            href="https://t.me/yourchannellink"
+            href="https://t.me/+VnNrj2oJ1PVlZGJk"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-10 py-4 rounded-lg bg-primary text-primary-foreground font-semibold text-lg glow-green hover:brightness-110 transition-all duration-300"

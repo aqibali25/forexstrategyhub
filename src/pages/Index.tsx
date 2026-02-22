@@ -14,8 +14,8 @@ const Index = () => {
       <Navbar />
       <HeroSection />
       <TradeHistory />
-      <ProfitCalculator />
-      <VideoSection />
+      {/* <ProfitCalculator /> */}
+      {/* <VideoSection /> */}
       <div id="testimonials">
         <Testimonials />
       </div>

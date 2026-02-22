@@ -4,9 +4,15 @@ import { Send, TrendingUp, Users, BarChart3 } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
 
 const statsData = [
-  { icon: TrendingUp, target: 92, suffix: "%", label: "Win Rate" },
-  { icon: BarChart3, target: 2400, suffix: "+", label: "Pips Earned", format: true },
-  { icon: Users, target: 5000, suffix: "+", label: "Members", format: true },
+  { icon: TrendingUp, target: 93, suffix: "%", label: "Win Rate" },
+  {
+    icon: BarChart3,
+    target: 5000,
+    suffix: "+",
+    label: "Pips Earned Per Week",
+    format: true,
+  },
+  { icon: Users, target: 1500, suffix: "+", label: "Members", format: true },
 ];
 
 const AnimatedCounter = ({ target, suffix, format, delay }) => {
@@ -36,7 +42,12 @@ const AnimatedCounter = ({ target, suffix, format, delay }) => {
   }, [isInView, target, delay]);
 
   const formatted = format ? count.toLocaleString() : count;
-  return <span ref={ref}>{formatted}{suffix}</span>;
+  return (
+    <span ref={ref}>
+      {formatted}
+      {suffix}
+    </span>
+  );
 };
 
 const HeroSection = () => {
@@ -63,18 +74,18 @@ const HeroSection = () => {
           </span>
 
           <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold font-display leading-tight mb-6">
-            Trade Smarter.{" "}
-            <span className="text-gradient">Profit Bigger.</span>
+            Trade Smarter. <span className="text-gradient">Profit Bigger.</span>
           </h1>
 
           <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 font-light">
-            Join our elite Telegram channel for daily forex signals, market
-            analysis, and a community of profitable traders.
+            Join our elite Telegram channel for daily forex signals,{" "}
+            <span className="text-white"> Account Management, Vip Group </span>,
+            market analysis, and a community of profitable traders.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
             <a
-              href="https://t.me/yourchannellink"
+              href="https://t.me/+VnNrj2oJ1PVlZGJk"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-lg bg-primary text-primary-foreground font-semibold text-lg glow-green hover:brightness-110 transition-all duration-300"
@@ -109,7 +120,9 @@ const HeroSection = () => {
                     delay={400 + index * 150}
                   />
                 </span>
-                <span className="text-sm text-muted-foreground">{stat.label}</span>
+                <span className="text-sm text-muted-foreground">
+                  {stat.label}
+                </span>
               </motion.div>
             ))}
           </div>

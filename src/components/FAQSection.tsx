@@ -9,7 +9,7 @@ const faqs = [
   },
   {
     q: "What currency pairs do you trade?",
-    a: "We cover all major pairs (EUR/USD, GBP/USD, USD/JPY, etc.), popular crosses, and gold (XAU/USD). Our analysts monitor 20+ instruments daily.",
+    a: "We cover pair gold (XAU/USD). Our analysts monitor 20+ instruments daily.",
   },
   {
     q: "How many signals do you send per day?",
@@ -21,7 +21,7 @@ const faqs = [
   },
   {
     q: "What is your win rate?",
-    a: "Our verified win rate is 92% across all signals. You can check our full transparent trade history right on this page.",
+    a: "Our verified win rate is 93% across all signals. You can check our full transparent trade history right on this page.",
   },
   {
     q: "How do I get started?",
